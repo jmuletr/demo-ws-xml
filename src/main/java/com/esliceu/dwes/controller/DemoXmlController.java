@@ -1,7 +1,8 @@
 package com.esliceu.dwes.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,12 @@ public class DemoXmlController {
         employee.setName("Java Developer Zone");
         employee.setRole("HR");
         return employee;
+    }
+
+    @RequestMapping(value = "/demo-post", method = RequestMethod.POST)
+    public ResponseEntity ddd(@RequestBody Employee employee) {
+        System.out.println(employee);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @RequestMapping("/employees")
